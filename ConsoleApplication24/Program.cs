@@ -11,11 +11,11 @@ namespace ConsoleApplication23
 
         static void Main(string[] args)
         {
-            var point1 = new Point(0, 3);
-            var point2 = new Point(-2, 3);
-            var point3 = new Point(-6, 1);
+            var point1 = new Point(-3, -2);
+            var point2 = new Point(0, -1);
+            var point3 = new Point(-2, 5);
 
-            Console.WriteLine("Три точки: {0} {1} {2}", point1, point2, point3);
+            Console.WriteLine("Три точки: ({0};{1}) ({2};{3}) ({4};{5})", point1.x, point1.y, point2.x, point2.y, point3.x, point3.y);
 
             var edge1 = new Edge(point1, point2);
             var edge2 = new Edge(point2, point3);
@@ -24,9 +24,9 @@ namespace ConsoleApplication23
 
             var tringle1 = new Traingle(point1, point2, point3);
 
-            Console.WriteLine("Периметр равен:", tringle1.Perimeter());
-            Console.WriteLine("Площадь равна:", tringle1.Area());
-            Console.WriteLine("Вид треугольника:", tringle1.GetType());
+            Console.WriteLine("Периметр равен:" + tringle1.Perimeter());
+            Console.WriteLine("Площадь равна:" + tringle1.Area());
+            Console.WriteLine("Вид треугольника:" + tringle1.GetType());
 
             Console.ReadKey();
         }
@@ -107,7 +107,7 @@ namespace ConsoleApplication23
             var ab = new Edge(a, b);
             var ac = new Edge(a, c);
             var bc = new Edge(b, c);
-            if (ab.GetLength() == Math.Sqrt(Math.Pow(bc.GetLength(),2) + Math.Pow(ac.GetLength(),2)) || (bc.GetLength() == Math.Sqrt(Math.Pow(ac.GetLength(),2) + Math.Pow(ab.GetLength(),2))) || (ac.GetLength() == Math.Sqrt(Math.Pow(bc.GetLength(), 2) + Math.Pow(ab.GetLength(), 2)))) return "равносторонний";
+            if (ab.GetLength() == Math.Sqrt(Math.Pow(bc.GetLength(),2) + Math.Pow(ac.GetLength(),2)) || (bc.GetLength() == Math.Sqrt(Math.Pow(ac.GetLength(),2) + Math.Pow(ab.GetLength(),2))) || (ac.GetLength() == Math.Sqrt(Math.Pow(bc.GetLength(), 2) + Math.Pow(ab.GetLength(), 2)))) return "прямоугольный";
             if (ab.GetLength() == bc.GetLength() || ac.GetLength() == ab.GetLength() || ac.GetLength() == bc.GetLength()) return "равнобедренный";
             return "треугольник не является прямоугольным и равнобедренным, возможно, он обычный треугольник, но это не точно";
         }
