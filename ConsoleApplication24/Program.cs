@@ -16,14 +16,14 @@ namespace ConsoleApplication23
             var point3 = new Point(-6, 1);
 
             Console.WriteLine("{0} { 1} {2}", point1, point2, point3);
+
+             d = 
+            var tringle1 = new Traingle(point1, point2, point3);
+            Console.WriteLine("Периметр равен:", Perimeter());
+            Console.WriteLine("Площадь равна:", Area());
+            Console.WriteLine("Вид треугольника:", GetType());
+
             Console.ReadKey();
-
-
-
-
-
-
-
         }
     }
     public class Point
@@ -77,19 +77,19 @@ namespace ConsoleApplication23
         {
             Console.WriteLine("a is {0}, b is {1}, c is {2}", a, b, c);
         }
-        double Area(Edge a, Edge b, Edge c)
+       public double Area(Edge a, Edge b, Edge c)
         {
             double p = (a.GetLength() + b.GetLength() + c.GetLength()) /2;
             return Math.Sqrt(p * (p - a.GetLength()) * (p - b.GetLength()) * (p - c.GetLength()));
 
         }
 
-        double Perimeter(Edge a, Edge b, Edge c)
+       public double Perimeter(Edge a, Edge b, Edge c)
         {
             double Perimeter = a.GetLength() + b.GetLength() + c.GetLength();
             return Perimeter;
         }
-        string GetType(Edge a, Edge b, Edge c)
+       public string GetType(Edge a, Edge b, Edge c)
         {
             if (a.GetLength() == Math.Sqrt(Math.Pow(b.GetLength(),2) + Math.Pow(c.GetLength(),2)) || (b.GetLength() == Math.Sqrt(Math.Pow(a.GetLength(),2) + Math.Pow(c.GetLength(),2))) || (c.GetLength() == Math.Sqrt(Math.Pow(b.GetLength(), 2) + Math.Pow(a.GetLength(), 2)))) return "равносторонний";
             if (a.GetLength() == b.GetLength() || a.GetLength() == c.GetLength() || b.GetLength() == c.GetLength()) return "равнобедренный";
