@@ -23,6 +23,7 @@ namespace ConsoleApplication23
 
 
 
+
         }
     }
     public class Point
@@ -30,7 +31,7 @@ namespace ConsoleApplication23
         public float x { get; set;}
         public float y { get; set; }
 
-        public Point(float x,  float y)
+        public Point(float x, float y)
         {
             this.x = x;
             this.y = y;
@@ -45,7 +46,7 @@ namespace ConsoleApplication23
         public Point B { get; set; }
 
        
-        public Edge()
+        public Edge(Point A, Point B)
         {
             this.A = A;
             this.B = B;
@@ -66,7 +67,7 @@ namespace ConsoleApplication23
         public Point b { get; set; }
         public Point c { get; set; }
 
-        public Traingle ()   //конструктор
+        public Traingle (Point a, Point b, Point c)   //конструктор
         {
             this.a = a;
             this.b = b;
@@ -76,23 +77,22 @@ namespace ConsoleApplication23
         {
             Console.WriteLine("a is {0}, b is {1}, c is {2}", a, b, c);
         }
-        double Area()
+        double Area(Edge a, Edge b, Edge c)
         {
-            double p = ( a +  b +  c) /2;
-            return Math.Sqrt(p * (p -  a) * (p - b) * (p - c));
+            double p = (a.GetLength() + b.GetLength() + c.GetLength()) /2;
+            return Math.Sqrt(p * (p - a.GetLength()) * (p - b.GetLength()) * (p - c.GetLength()));
 
         }
 
-
-        double Perimeter()
+        double Perimeter(Edge a, Edge b, Edge c)
         {
-            double Perimeter = GetLength(a) + b + c;
+            double Perimeter = a.GetLength() + b.GetLength() + c.GetLength();
             return Perimeter;
         }
-        string GetType()
+        string GetType(Edge a, Edge b, Edge c)
         {
-            if (a = Math.Sqrt(Math.Pow(b,2) + Math.Pow(c,2)) || (b = Math.Sqrt(Math.Pow(a,2) + Math.Pow(c,2))) || (c = Math.Sqrt(Math.Pow(b,2) + Math.Pow(a,2)))) return "равносторонний";
-            if (AB == BC || AB == AC || BC == AC) return "равнобедренный";
+            if (a.GetLength() == Math.Sqrt(Math.Pow(b.GetLength(),2) + Math.Pow(c.GetLength(),2)) || (b.GetLength() == Math.Sqrt(Math.Pow(a.GetLength(),2) + Math.Pow(c.GetLength(),2))) || (c.GetLength() == Math.Sqrt(Math.Pow(b.GetLength(), 2) + Math.Pow(a.GetLength(), 2)))) return "равносторонний";
+            if (a.GetLength() == b.GetLength() || a.GetLength() == c.GetLength() || b.GetLength() == c.GetLength()) return "равнобедренный";
             return "треугольник не является прямоугольным и равнобедренным, возможно, он обычный треугольник, но это не точно";
         }
 
