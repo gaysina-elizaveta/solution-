@@ -18,9 +18,6 @@ namespace ConsoleApplication23
             Console.WriteLine("{0} { 1} {2}", point1, point2, point3);
             Console.ReadKey();
 
-            var edge1 = new Edge(point1, point2);
-            var edge2 = new Edge(point2, point3);
-            var edge3 = new Edge(point3, point1);
 
 
 
@@ -30,22 +27,33 @@ namespace ConsoleApplication23
     }
     public class Point
     {
-        public float x;
-        public float y;
-        public Point(float _x, float _y)
+        public float x { get; set;}
+        public float y { get; set; }
+
+        public Point(float x,  float y)
         {
-            x = _x;
-            y = _y;
+            this.x = x;
+            this.y = y;
         }
+
     }
 
 
     public class  Edge
     {
-        double line;
-        public Edge(Point p1, Point p2)
+        public Point A { get; set; }
+        public Point B { get; set; }
+
+       
+        public Edge()
         {
-            line = Math.Sqrt(Math.Pow(p1.x - p2.x,2) + Math.Pow(p1.y - p2.y,2));
+            this.A = A;
+            this.B = B;
+        }
+        double line;
+        public double GetLength()
+        {
+           return line = Math.Sqrt(Math.Pow(B.x - A.x,2) + Math.Pow(A.y - B.y,2));
         }
       
 
@@ -54,15 +62,15 @@ namespace ConsoleApplication23
 
     public class Traingle
     {
-        public Point a;
-        public Point b;
-        public Point c;
+        public Point a { get; set; }
+        public Point b { get; set; }
+        public Point c { get; set; }
 
         public Traingle ()   //конструктор
         {
-            a = new Point(,);
-            b;
-            c;
+            this.a = a;
+            this.b = b;
+            this.c = c;
         }
         public void PrintSides()
         {
@@ -74,12 +82,19 @@ namespace ConsoleApplication23
             return Math.Sqrt(p * (p -  a) * (p - b) * (p - c));
 
         }
+
+
         double Perimeter()
         {
-            double Perimeter = a + b + c;
+            double Perimeter = GetLength(a) + b + c;
             return Perimeter;
         }
-
+        string GetType()
+        {
+            if (AB == BC && AB == AC) return "равносторонний";
+            if (AB == BC || AB == AC || BC == AC) return "равнобедренный";
+            return "треугольник не является равносторонним и равнобедренным, возможно, он прямоугольный, но это не точно";
+        }
 
 
 
