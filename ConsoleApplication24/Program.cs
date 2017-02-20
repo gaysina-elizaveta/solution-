@@ -91,9 +91,9 @@ namespace ConsoleApplication23
         }
         string GetType()
         {
-            if (AB == BC && AB == AC) return "равносторонний";
+            if (a = Math.Sqrt(Math.Pow(b,2) + Math.Pow(c,2)) || (b = Math.Sqrt(Math.Pow(a,2) + Math.Pow(c,2))) || (c = Math.Sqrt(Math.Pow(b,2) + Math.Pow(a,2)))) return "равносторонний";
             if (AB == BC || AB == AC || BC == AC) return "равнобедренный";
-            return "треугольник не является равносторонним и равнобедренным, возможно, он прямоугольный, но это не точно";
+            return "треугольник не является прямоугольным и равнобедренным, возможно, он обычный треугольник, но это не точно";
         }
 
 
