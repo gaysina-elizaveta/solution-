@@ -11,22 +11,35 @@ namespace ConsoleApplication23
 
         static void Main(string[] args)
         {
-            var point1 = new Point(-3, -2);
-            var point2 = new Point(0, -1);
-            var point3 = new Point(-2, 5);
+            Point[] point = new Point[3];
+            Random gen = new Random();
+            for (int i = 0; i < 3; i++)
+            {
+               
+                point[i] = new Point(gen.Next(10), gen.Next(10));
+              
+            }
+            //var point1 = new Point(-3, -2);
+            //var point2 = new Point(0, -1);
+            //var point3 = new Point(-2, 5);
 
-            Console.WriteLine("Три точки: ({0};{1}) ({2};{3}) ({4};{5})", point1.x, point1.y, point2.x, point2.y, point3.x, point3.y);
+            Console.WriteLine("Три точки: ({0};{1}) ({2};{3}) ({4};{5})", point[0].x, point[0].y, point[1].x, point[1].y, point[2].x, point[2].y);
 
-            var edge1 = new Edge(point1, point2);
-            var edge2 = new Edge(point2, point3);
-            var edge3 = new Edge(point3, point1);
+            //var edge1 = new Edge(point1, point2);
+            //var edge2 = new Edge(point2, point3);
+            //var edge3 = new Edge(point3, point1);
 
+            //Traingle[] trgl = new Traingle[10];
+            //Random gen1 = new Random();
+            //for (int i = 0; i < length; i++)
+            //{
+            //    trdg[i] = new Traingle(point)
+            //}
+            ////var tringle1 = new Traingle(point1, point2, point3);
 
-            var tringle1 = new Traingle(point1, point2, point3);
-
-            Console.WriteLine("Периметр равен:" + tringle1.Perimeter());
-            Console.WriteLine("Площадь равна:" + tringle1.Area());
-            Console.WriteLine("Вид треугольника:" + tringle1.GetType());
+            //Console.WriteLine("Периметр треугольника равен:" + tringle1.Perimeter());
+            //Console.WriteLine("Площадь треугольника равна:" + tringle1.Area());
+            //Console.WriteLine("Вид треугольника:" + tringle1.GetType());
 
             Console.ReadKey();
         }
