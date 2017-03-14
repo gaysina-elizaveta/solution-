@@ -17,10 +17,10 @@ namespace ConsoleApplication24
             this.A = A;
             this.B = B;
         }
-        double line;
+        
         public double GetLength()
         {
-            return line = Math.Sqrt(Math.Pow(B.x - A.x, 2) + Math.Pow(A.y - B.y, 2));
+            return  Math.Sqrt(Math.Pow(B.x - A.x, 2) + Math.Pow(A.y - B.y, 2));
         }
 
     }
